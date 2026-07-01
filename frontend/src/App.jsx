@@ -9,12 +9,9 @@ import Servicos from './pages/servicos';
 function App() {
   const [pagina, setPagina] = useState('inicio');
   return (
-    <div style={{
-      fontFamily: 'Arial', padding: '20px', maxWidth: '800px', margin: '0 auto'
-    }}>
-      <Menu setPagina={setPagina} />
-      <hr />
-      {pagina === 'inicio' && <Inicio />}
+    <div className="app-container">
+      <Menu setPagina={setPagina} pagina={pagina} />
+      {pagina === 'inicio' && <Inicio setPagina={setPagina} />}
       {pagina === 'equipamentos' && <Equipamentos />}
       {pagina === 'cidades' && <Cidades />}
       {pagina === 'funcionarios' && <Funcionarios />}

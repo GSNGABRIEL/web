@@ -22,6 +22,30 @@ export const equipamentoService = {
     }
     const data = await response.json();
     return { data };
+  },
+  atualizar: async (id, dados) => {
+    const response = await fetch(`${API_URL}/equipamentos/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(dados)
+    });
+    if (!response.ok) {
+      throw new Error(`Erro ao atualizar equipamento: ${response.statusText}`);
+    }
+    const data = await response.json();
+    return { data };
+  },
+  excluir: async (id) => {
+    const response = await fetch(`${API_URL}/equipamentos/${id}`, {
+      method: 'DELETE'
+    });
+    if (!response.ok) {
+      throw new Error(`Erro ao excluir equipamento: ${response.statusText}`);
+    }
+    const data = await response.json();
+    return { data };
   }
 };
 
@@ -44,6 +68,30 @@ export const cidadeService = {
     });
     if (!response.ok) {
       throw new Error(`Erro ao criar cidade: ${response.statusText}`);
+    }
+    const data = await response.json();
+    return { data };
+  },
+  atualizar: async (id, dados) => {
+    const response = await fetch(`${API_URL}/cidades/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(dados)
+    });
+    if (!response.ok) {
+      throw new Error(`Erro ao atualizar cidade: ${response.statusText}`);
+    }
+    const data = await response.json();
+    return { data };
+  },
+  excluir: async (id) => {
+    const response = await fetch(`${API_URL}/cidades/${id}`, {
+      method: 'DELETE'
+    });
+    if (!response.ok) {
+      throw new Error(`Erro ao excluir cidade: ${response.statusText}`);
     }
     const data = await response.json();
     return { data };
@@ -72,6 +120,30 @@ export const funcionarioService = {
     }
     const data = await response.json();
     return { data };
+  },
+  atualizar: async (id, dados) => {
+    const response = await fetch(`${API_URL}/funcionarios/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(dados)
+    });
+    if (!response.ok) {
+      throw new Error(`Erro ao atualizar funcionário: ${response.statusText}`);
+    }
+    const data = await response.json();
+    return { data };
+  },
+  excluir: async (id) => {
+    const response = await fetch(`${API_URL}/funcionarios/${id}`, {
+      method: 'DELETE'
+    });
+    if (!response.ok) {
+      throw new Error(`Erro ao excluir funcionário: ${response.statusText}`);
+    }
+    const data = await response.json();
+    return { data };
   }
 };
 
@@ -97,5 +169,41 @@ export const servicoService = {
     }
     const data = await response.json();
     return { data };
+  },
+  atualizar: async (id, dados) => {
+    const response = await fetch(`${API_URL}/servicos/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(dados)
+    });
+    if (!response.ok) {
+      throw new Error(`Erro ao atualizar serviço: ${response.statusText}`);
+    }
+    const data = await response.json();
+    return { data };
+  },
+  excluir: async (id) => {
+    const response = await fetch(`${API_URL}/servicos/${id}`, {
+      method: 'DELETE'
+    });
+    if (!response.ok) {
+      throw new Error(`Erro ao excluir serviço: ${response.statusText}`);
+    }
+    const data = await response.json();
+    return { data };
   }
 };
+
+export const dashboardService = {
+  obterEstatisticas: async () => {
+    const response = await fetch(`${API_URL}/dashboard/stats`);
+    if (!response.ok) {
+      throw new Error(`Erro ao buscar estatísticas do painel: ${response.statusText}`);
+    }
+    const data = await response.json();
+    return { data };
+  }
+};
+
